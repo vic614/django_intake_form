@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <hr>
+            <form action="" method="post">{% csrf_token %}
+                <h5>The following MPA will be deleted: "{{ object.model_year }} {{ object.maker }} {{ object.model }}"
+                    Please confirm deletion or cancel to go back.</h5>
+                <input class="btn btn-default" type="submit" value="Confirm"/>
+                <a class="btn btn-default" href="{% url 'personal_info_list' %}">Back</a>
+            </form>
+    </div>
+{% endblock %}

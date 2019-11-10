@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<body>
+<table class="table table-striped">
+
+    {% if object_list %}
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+    </tr>
+    </thead>
+
+
+    {% for personal_info in object_list %}
+    <tr>
+        <td>{{ personal_info.first_name }}</td>
+        <td>{{ personal_info.last_name }}</td>
+        <td>{{ personal_info.date_of_birth }}</td>
+        <td><a class="material-icons" href="{% url 'personal_info_update' personal_info.pk %}">edit</a></td>
+        <td><a class="material-icons" href="{% url 'personal_info_delete' personal_info.pk %}">delete</a></td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <tr>
+        <td>There is no personal_info record yet.</td>
+    <tr>
+    {% endif %}
+            <td><a class="material-icons" href="{% url 'personal_info_create' %}">add</a></td>
+</table>
+</body>
+{% endblock %}
