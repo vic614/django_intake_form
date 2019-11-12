@@ -10,7 +10,7 @@ podTemplate(
     node(POD_LABEL) {
         container('docker') {
             stage('Docker environment') {
-                    sh 'docker kill $(docker ps -q)'
+                    sh 'docker ps -q'
                 
             }
         }
